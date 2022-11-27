@@ -1,0 +1,16 @@
+.spinner {
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+  }
+  .slds-modal__header .slds-modal__close {
+    position: absolute;
+    top: -2.5rem;
+    right: -0.5rem;
+    margin-left: 0;
+    bottom: 0;
+    visibility: hidden !important;
+  }

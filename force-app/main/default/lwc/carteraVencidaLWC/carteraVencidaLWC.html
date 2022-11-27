@@ -1,3 +1,15 @@
 <template>
-    
+    <template if:true={showSpinner} style="position: fixed;">
+        <div class="spinner">
+            <lightning-spinner alternative-text="Loading" variant="brand" size="medium">
+            </lightning-spinner>
+        </div>
+    </template>
+    <lightning-quick-action-panel header="Carteras Vencidas">
+        <div style="height: 300px;">
+            <lightning-datatable key-field="id" data={data} columns={columns} hide-checkbox-column="true"
+                draft-values={draftValues} onrowaction={handleRowAction} suppress-bottom-bar>
+            </lightning-datatable>
+        </div>
+    </lightning-quick-action-panel>
 </template>
