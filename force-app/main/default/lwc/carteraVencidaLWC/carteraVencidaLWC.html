@@ -5,11 +5,68 @@
             </lightning-spinner>
         </div>
     </template>
-    <lightning-quick-action-panel header="Carteras Vencidas">
-        <div style="height: 300px;">
-            <lightning-datatable key-field="id" data={data} columns={columns} hide-checkbox-column="true"
-                draft-values={draftValues} onrowaction={handleRowAction} suppress-bottom-bar>
-            </lightning-datatable>
-        </div>
-    </lightning-quick-action-panel>
+    <template if:true={areaDetailTable}>
+        <lightning-quick-action-panel header="Carteras Vencidas" style="height: 500px; width: 500px; ">
+            <div>
+                <lightning-datatable key-field="id" data={data} columns={columns} hide-checkbox-column="true"
+                    draft-values={draftValues} onrowaction={handleRowAction} suppress-bottom-bar>
+                </lightning-datatable>
+            </div>
+
+        </lightning-quick-action-panel>
+    </template>
+    <template if:true={areSelectRecord}>
+        <lightning-quick-action-panel header="Carteras Vencidas" style="height: 500px; width: 500px; ">
+            <div class="slds-wrap slds-grid">
+
+                <div class="slds-col slds-size_1-of-2">
+                    <span>
+                        <div class="slds-p-around_medium" style="padding-top: 0;">
+                            <lightning-input type="text" label="Name" value={creditDebName} disabled=true>
+                            </lightning-input>
+                        </div>
+                    </span>
+                </div>
+                <div class="slds-col slds-size_1-of-2" style="padding-right:15px ;">
+                    <span>
+                        <div class="slds-p-around_medium" style="padding-top: 0;">
+                            <lightning-input type="text" label="Estado" value={estadoCartera} disabled=true>
+                            </lightning-input>
+                        </div>
+                    </span>
+                </div>
+
+                <div class="slds-col slds-size_1-of-2">
+                    <span>
+                        <div class="slds-p-around_medium" style="padding-top: 0;">
+                            <lightning-textarea name="Observacion" label="Observacion" value={observacionValue} onchange={observacionOnchange}></lightning-textarea>
+                            
+                        </div>
+                    </span>
+                </div>
+            </div>
+
+            <footer style="padding-top: 30px;">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col">
+                        <span>
+                            <lightning-button label="Cancel" title="Cancel" onclick={handleClickButtonCancel}
+                                class="slds-m-left_x-small slds-float_right">
+                            </lightning-button>
+                        </span>
+                    </div>
+                    <div class="slds-col" style="padding-left: 10px;">
+                        <span>
+                            <lightning-button variant="brand" label="Save" title="Save"
+                                onclick={handleClickButtonSave} class="slds-m-left_x-small slds-float_left">
+                            </lightning-button>
+
+                        </span>
+                    </div>
+                </div>
+            </footer>
+
+        </lightning-quick-action-panel>
+    </template>
+
 </template>
